@@ -1,0 +1,9 @@
+BEGIN {
+	print "-------------------1st field and 2nd field-------------------"
+	FS=":"
+}
+{
+text = "----"
+print $1 text $2
+}
+END {print "end of ouput"}

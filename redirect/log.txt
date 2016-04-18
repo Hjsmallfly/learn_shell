@@ -1,0 +1,2 @@
+ls: cannot access non_exist.txt: No such file or directory
+stdout.txt

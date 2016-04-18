@@ -1,0 +1,1 @@
+./redirect_both.sh: line 4: errer: command not found
