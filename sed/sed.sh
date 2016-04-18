@@ -96,3 +96,27 @@ echo "------------------------"
 sed '2c\this is the second line' data.txt
 # sed '2,3c\xxxx' data.txt 并不是把第二第三行都改成xxxx, 而是把
 # 这两行一并修改为xxxx
+# c命令也可以用 /pattern/c\new line 来确定需要修改的行
+
+# y 命令 inchars -> outchars
+# 一一对应
+echo "a b c d" | sed '1y/abcd/1234/'
+
+# = 打印行号
+echo "------------------------"
+echo -e "1st\n2nd\n3rd" | sed '='
+
+# p 打印行
+echo "1st and 2nd line"
+sed -n '1,2p' data.txt
+
+# r 用于读取文件内容并插入到指定行之后
+cat > template.txt <<EOF
+The following people are include:
+PEOPLE
+EOF
+echo "xiaofud huangjing" > people.txt
+sed '/PEOPLE/{
+r people.txt	# 在该行下面读取people.txt文件
+d				# 读取完成后删除该行
+}' template.txt
